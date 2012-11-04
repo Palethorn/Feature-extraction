@@ -11,7 +11,9 @@
 
 	using namespace std;
 	using namespace cv;
-
+	#define ticks GetTickCount();
 	void sift(Mat img, char *window_name);
-
+	void mser(Mat img, char *window_name);
+	void surf(Mat img, char *window_name);
+	Mat drawCircles(Mat, vector<KeyPoint>);
 #endif

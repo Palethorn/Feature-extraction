@@ -2,13 +2,18 @@
 
 void sift(Mat img, char* window_name)
 {
-	SIFT sift;
+	SIFT sift(0, 3, 0.04, 10, 1.6);
+	Mat gray;
+	DWORD t1, t2, t;
+	cvtColor(img, gray, CV_BGR2GRAY);
 	vector<cv::KeyPoint> keypoints;
-	sift.detect(img, keypoints);
-	for(int i = 0; i < (int)keypoints.size(); i++)
-	{
-		circle(img, keypoints.at(i).pt, keypoints.at(i).size, Scalar(0,0,255));
-	}
+	t1 = ticks;
+	sift.detect(gray, keypoints);
+	t2 = ticks;
+	t = t2 - t1;
+	cout << "SIFT features detected: " << (int)keypoints.size() << endl << "Time to execute: " << t << endl;
+	img = drawCircles(img, keypoints);
 	namedWindow(window_name, CV_WINDOW_AUTOSIZE);
 	imshow(window_name, img);
+	imwrite("sift.jpg", img);
 }

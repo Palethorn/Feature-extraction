@@ -6,6 +6,7 @@ void harris(int thresh, Mat img, char *window_name)
 	Mat dst, dst_norm, dst_norm_scaled;
 	Mat img_gray;
 	cvtColor(img, img_gray, CV_BGR2GRAY);
+	DWORD t1, t2, t;
 	dst = Mat::zeros(img.size(), CV_32FC1);
 
 	/// Detector parameters
@@ -15,8 +16,10 @@ void harris(int thresh, Mat img, char *window_name)
 	double k = 0.04;
 
 	/// Detecting corners
+	t1 = ticks;
 	cornerHarris(img_gray, dst, blockSize, apertureSize, k, BORDER_DEFAULT);
-
+	t2 = ticks;
+	t = t2 - t1;
 	/// Normalizing
 	normalize(dst, dst_norm, 0, 255, NORM_MINMAX, CV_32FC1, Mat());
 	convertScaleAbs(dst_norm, dst_norm_scaled);
@@ -33,7 +36,7 @@ void harris(int thresh, Mat img, char *window_name)
 	}
 	}
 	/// Showing the result
-	printf("Harris corner count: %d\n", count);
+	cout << "Harris features detected: " << count << endl << "Time to execute: " << t << endl;
 	imwrite(filename_final, img);
 	namedWindow(window_name, CV_WINDOW_AUTOSIZE);
 	imshow(window_name, img);

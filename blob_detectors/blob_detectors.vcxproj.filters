@@ -26,5 +26,14 @@
     <ClCompile Include="sift.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="mser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="surf.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="drawCircles.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
