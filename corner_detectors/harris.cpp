@@ -1,7 +1,8 @@
 #include "declarations.h"
 #include <string.h>
-void harris(int thresh, Mat img, char *window_name)
+void harris(int thresh, Mat img, char *window_name, char *filename)
 {
+	cout << filename << endl;
 	char *filename_cornerless = "harris_cornerless.jpg", *filename_final = "harris_final.jpg";
 	Mat dst, dst_norm, dst_norm_scaled;
 	Mat img_gray;
@@ -37,7 +38,7 @@ void harris(int thresh, Mat img, char *window_name)
 	}
 	/// Showing the result
 	cout << "Harris features detected: " << count << endl << "Time to execute: " << t << endl;
-	imwrite(filename_final, img);
+	imwrite(filename, img);
 	namedWindow(window_name, CV_WINDOW_AUTOSIZE);
 	imshow(window_name, img);
 }

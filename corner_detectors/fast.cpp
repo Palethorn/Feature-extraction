@@ -1,9 +1,9 @@
 #include "declarations.h"
-void fast(int thresh, Mat img, char * window_name)
+void fast(int thresh, Mat img, char * window_name, char *filename)
 {
+	cout << filename << endl;
 	Mat img_conv, dst;
 	DWORD t1, t2, t;
-	char *filename = "fast_features.jpg";
 	int i = 0;
 	vector<KeyPoint> keyPoints;
 	cvtColor(img, img_conv, CV_BGR2GRAY);

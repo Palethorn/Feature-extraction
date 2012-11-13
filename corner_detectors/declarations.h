@@ -13,6 +13,6 @@
 	using namespace std;
 	#define ticks GetTickCount();
 	/// Function header
-	void harris(int thresh, Mat img, char *window_name);
-	void fast(int thresh, Mat img, char *window_name);
+	void harris(int thresh, Mat img, char *window_name, char *filename);
+	void fast(int thresh, Mat img, char *window_name, char *filename);
 #endif

@@ -1,7 +1,8 @@
 #include "declarations.h"
 
-void sift(Mat img, char* window_name)
+void sift(Mat img, char* window_name, char *filename)
 {
+	cout << filename << endl;
 	SIFT sift(0, 3, 0.04, 10, 1.6);
 	Mat gray;
 	DWORD t1, t2, t;
@@ -15,5 +16,5 @@ void sift(Mat img, char* window_name)
 	img = drawCircles(img, keypoints);
 	namedWindow(window_name, CV_WINDOW_AUTOSIZE);
 	imshow(window_name, img);
-	imwrite("sift.jpg", img);
+	imwrite(filename, img);
 }

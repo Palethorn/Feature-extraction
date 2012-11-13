@@ -3,18 +3,35 @@
 int main()
 {
 	Mat src1, src2, src3;
-	/// Load source image and convert it to gray
-	src1 = imread("cells.jpg");
-	src2 = imread("cells.jpg");
-	src3 = imread("cells.jpg");
-	/// Create a window and a trackbar
-	//namedWindow(source_window, CV_WINDOW_AUTOSIZE);
-	//createTrackbar("Threshold: ", source_window, &thresh, max_thresh, cornerHarris_demo);
-	//imshow(source_window, src);
 
-	sift(src1, "SIFT");
-	mser(src2, "MSER");
-	surf(src3, "SURF");
+	src1 = imread("popcorn/popcorn1.jpg");
+	src2 = src1.clone();
+	src3 = src1.clone();
+	sift(src1, "SIFT", "sift.jpg");
+	mser(src2, "MSER", "mser.jpg");
+	surf(src3, "SURF", "surf.jpg");
+
+	src1 = imread("popcorn/popcorn2.jpg");
+	src2 = src1.clone();
+	src3 = src1.clone();
+	sift(src1, "SIFT translation", "sift_translation.jpg");
+	mser(src2, "MSER translation", "mser_translation.jpg");
+	surf(src3, "SURF translation", "surf_translation.jpg");
+
+	src1 = imread("popcorn/popcorn3.jpg");
+	src2 = src1.clone();
+	src3 = src1.clone();
+	sift(src1, "SIFT rotation", "sift_rotation.jpg");
+	mser(src2, "MSER rotation", "mser_rotation.jpg");
+	surf(src3, "SURF rotation", "surf_rotation.jpg");
+
+	src1 = imread("popcorn/popcorn4.jpg");
+	src2 = src1.clone();
+	src3 = src1.clone();
+	sift(src1, "SIFT zoom", "sift_zoom.jpg");
+	mser(src2, "MSER zoom", "mser_zoom.jpg");
+	surf(src3, "SURF zoom", "surf_zoom.jpg");
+
 	waitKey(0);
 	return(0);
 }

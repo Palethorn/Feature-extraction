@@ -1,7 +1,8 @@
 #include "declarations.h"
 
-void mser(Mat img, char * window_name)
+void mser(Mat img, char * window_name, char *filename)
 {
+	cout << filename << endl;
 	MSER mser(5,60, 14400, .25, .4, 200, 1.01, 0.003, 5);
 	vector<KeyPoint> keypoints;
 	Mat gray;
@@ -15,5 +16,5 @@ void mser(Mat img, char * window_name)
 	img = drawCircles(img, keypoints);
 	namedWindow(window_name);
 	imshow(window_name, img);
-	imwrite("mser.jpg", img);
+	imwrite(filename, img);
 }

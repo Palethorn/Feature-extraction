@@ -1,7 +1,8 @@
 #include "declarations.h"
-void surf(Mat img, char *window_name)
+void surf(Mat img, char *window_name, char *filename)
 {
-	SURF surf(800);
+	cout << filename << endl;
+	SURF surf(1000);
 	vector<KeyPoint> keypoints;
 	Mat gray;
 	DWORD t1, t2, t;
@@ -14,5 +15,5 @@ void surf(Mat img, char *window_name)
 	img = drawCircles(img, keypoints);
 	namedWindow(window_name);
 	imshow(window_name, img);
-	imwrite("surf.jpg", img);
+	imwrite(filename, img);
 }
