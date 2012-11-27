@@ -2,15 +2,19 @@
 
 int main()
 {
+	VideoCapture cap(0);
 	Mat src1, src2, src3;
-
-	src1 = imread("popcorn/popcorn1.jpg");
-	src2 = src1.clone();
-	src3 = src1.clone();
-	sift(src1, "SIFT", "sift.jpg");
-	mser(src2, "MSER", "mser.jpg");
-	surf(src3, "SURF", "surf.jpg");
-
+	while(true)
+	{
+		cap >> src1;
+		src2 = src1.clone();
+		src3 = src1.clone();
+		sift(src1, "SIFT", "sift.jpg");
+		mser(src2, "MSER", "mser.jpg");
+		surf(src3, "SURF", "surf.jpg");
+		cvWaitKey(20);
+	}
+	/*
 	src1 = imread("popcorn/popcorn2.jpg");
 	src2 = src1.clone();
 	src3 = src1.clone();
@@ -31,7 +35,7 @@ int main()
 	sift(src1, "SIFT zoom", "sift_zoom.jpg");
 	mser(src2, "MSER zoom", "mser_zoom.jpg");
 	surf(src3, "SURF zoom", "surf_zoom.jpg");
-
+	*/
 	waitKey(0);
 	return(0);
 }
